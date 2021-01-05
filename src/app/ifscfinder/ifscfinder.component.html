@@ -1,0 +1,47 @@
+<h2>Find Details</h2>
+<form [formGroup]="myform">
+   
+        <div class="row list-item">
+            <label class="col-2">State:</label>
+            <select class="col-9 dropdownbtn form-control dropdownbtn"   formControlName="state" id="power" required>
+                <option selected="selected">Select</option>
+                <option *ngFor="let state of stateList"  >{{state}}</option>
+              </select>
+        </div>
+    
+    <div class="row list-item">
+       
+            <label class="col-2">District:</label>
+            <select class=" col-9 dropdownbtn form-control dropdownbtn"   formControlName="district" id="power" required>
+                <option selected="selected">Select</option>
+                <option *ngFor="let district of districtList"  >{{district}}</option>
+              </select>
+       
+    </div>
+    <div class="row list-item">
+       
+            <label class="col-2">Bank:</label>
+            <select class=" col-9 dropdownbtn form-control dropdownbtn"   formControlName="bank" id="power" required>
+                <option selected="selected">Select</option>
+                <option *ngFor="let bank of bankList"  >{{bank}}</option>
+              </select>
+     
+    </div>
+    <div class="row list-item">
+       
+            <label class="col-2">Branch:</label>
+            <select class=" col-9 dropdownbtn form-control dropdownbtn"   formControlName="branch" id="power" required>
+                <option selected="selected">Select</option>
+                <option *ngFor="let branch of branchList"  >{{branch}}</option>
+              </select>
+      
+    </div>
+    <div class=" row list-item">
+       
+        <button type="submit" class="btn btn-primary" (click)="findDetails()">Finder</button>
+      </div>
+</form>
+
+<div>
+    IFSC Code is {{ifscDetails}}
+</div>

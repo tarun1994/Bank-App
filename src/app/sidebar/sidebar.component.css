@@ -1,0 +1,13 @@
+.sidebar-container{
+    background-color: blue;
+    height: 100vh;
+}
+.pt50{
+    padding-top:50px;
+}
+.sidebar-text{
+    display: flex;
+    justify-content: center;
+    color: white;
+    font-weight: 700;
+}

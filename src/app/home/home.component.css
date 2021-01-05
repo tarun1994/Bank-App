@@ -1,0 +1,11 @@
+.name-bar{
+    height: 37px;
+    background-color: gainsboro;
+}
+.f-right{
+    float:right;
+    padding-right: 40px;
+}
+.p0{
+    padding:0px;
+}

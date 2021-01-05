@@ -1,0 +1,131 @@
+<div class="list-container">
+    <div class="btn-container">
+        <button type="button" class="btn btn-primary f-right" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Add Branch</button>
+    </div>
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">New Branch</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <form  [formGroup]="myform" >
+                <div class="form-group row justify">
+                  <label for="state-name" class="col-form-label">State:</label>
+                  <!-- <div class="btn-group dropdownbtn">
+                    <button type="button" class="btn btn-primary dropdown-toggle " data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      State
+                    </button>
+                    <div class="dropdown-menu" >
+                      <a class="dropdown-item" id="state"  *ngFor="let state of stateList" ngDefaultControl  formControlName="state">{{state}}</a>
+                        
+                    </div>
+                  </div> -->
+                  <select class="form-control dropdownbtn" placeholder="select"  formControlName="state" id="power" required>
+                    <option selected="selected">Select</option>
+                    <option *ngFor="let state of stateList"  >{{state}}</option>
+                  </select>
+                  <div *ngIf="showRequired.state" class="alert alert-danger">  This field is required </div> 
+                </div>
+                <div class="form-group row justify">
+                    <label for="district-name" class="col-form-label">District:</label>
+                    <!-- <div class="btn-group dropdownbtn">
+                      <button type="button" class="btn btn-primary dropdown-toggle " data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        District
+                      </button>
+                      <div class="dropdown-menu"  ngDefaultControl  formControlName="district">
+                        <a class="dropdown-item" id="district"  *ngFor="let district of districtList">{{district}}</a>
+                        
+                       
+                      </div>
+                    </div> -->
+                    <select class="form-control dropdownbtn"   formControlName="district" id="power" required>
+                        <option selected="selected">Select</option>
+                        <option *ngFor="let district of districtList"  >{{district}}</option>
+                      </select>
+                      <div *ngIf="showRequired.district " class="alert alert-danger">  This field is required </div> 
+                  </div>
+                <div class="form-group">
+                  <label for="branch-text" class="col-form-label">Branch Name:</label>
+                  <textarea class="form-control"   formControlName="branch"  id="branch-text"></textarea>
+                  <div *ngIf="showRequired.branch" class="alert alert-danger">  This field is required </div>   
+                </div>
+                <div class="form-group row justify">
+                    <label for="bank-name" class="col-form-label">Bank:</label>
+                    <!-- <div class="btn-group dropdownbtn">
+                      <button type="button" class="btn btn-primary dropdown-toggle " data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Bank
+                      </button>
+                      <div class="dropdown-menu"  >
+                        <button class="dropdown-item" id="bank" ngDefaultControl  name="bankname"  [] *ngFor="let bank of bankList">{{bank}}</button>
+                      </div>
+                    </div> -->
+                    <select class="form-control dropdownbtn"   formControlName="bank" id="power" required>
+                        <option selected="selected">Select</option>
+                        <option *ngFor="let bank of bankList"  >{{bank}}</option>
+                      </select>
+                      <div *ngIf="showRequired.bank" class="alert alert-danger">  This field is required </div> 
+                  </div>
+                  <div class="form-group">
+                    <label for="ifsc-text" class="col-form-label">IFSC Code:</label>
+                    <textarea class="form-control" id="ifsc-text"   formControlName="ifsc"  ></textarea>
+                    <div *ngIf="showRequired.ifsc" class="alert alert-danger">  This field is required </div> 
+                  </div>
+              </form>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              <button type="submit" class="btn btn-primary" (click)="addBranch()">Add Branch</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    <div class=".container-fluid ">
+    <div class="row mt20">
+        <div class="col-2 table-bordered">
+            <p>Branch Name</p>
+        </div>
+        <div class="col-2 table-bordered ">
+            <p>IFSC Code</p>
+        </div>
+        <div class="col-2 table-bordered">
+            <p>Bank</p>
+        </div>
+        <div class="col-2 table-bordered">
+            <p>District</p>
+        </div>
+        <div class="col-2 table-bordered">
+            <p>State</p>
+        </div>
+        <div class="col-2 table-bordered">
+            <p>Action</p>
+        </div>
+    </div>
+    </div>
+<div *ngIf="displayList.length >0">
+<div class="row " *ngFor="let list of displayList; let i = index" [attr.data-index]="i">
+    <div class="col-2 table-bordered">
+        <p>{{list.branch}}</p>
+    </div>
+    <div class="col-2 table-bordered">
+        <p>{{list.ifsc}}</p>
+    </div>
+    <div class="col-2 table-bordered">
+        <p>{{list.bank}}</p>
+    </div>
+    <div class="col-2 table-bordered">
+        <p>{{list.district}}</p>
+    </div>
+    <div class="col-2 table-bordered">
+        <p>{{list.state}}</p>
+    </div>
+    <div class="col-2 table-bordered">
+        <button type="button" class="btn btn-danger "  (click)="deleteBranch(i)">Delete</button>
+    </div>
+
+</div>
+</div>
+</div>
